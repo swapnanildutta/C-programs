@@ -6,3 +6,10 @@ int fact(int n)
     else
        return (n*fact(n-1));
 }
+int main()
+{
+      int n=5;
+      int f=fact(n);
+      printf("%d",f);
+      return 0;
+}

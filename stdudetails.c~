@@ -18,7 +18,7 @@ int main()
         printf("Enter the marks:");
         scanf("%d",&s[i].marks);
     }
-    printf("Students who scored above 75\n");
+    printf("Students who scored above 75");
     for(i=0;i<5;i++)
     {
        if(s[i].marks>75)

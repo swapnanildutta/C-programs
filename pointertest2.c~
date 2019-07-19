@@ -1,0 +1,14 @@
+#include <stdio.h>
+void print(char *str)
+{
+     int i;
+     for(i=0;str[i]!='\0';i++)
+     {
+          printf("%c",str[i]);
+     }
+}
+int main()
+{
+     print("RAJDEEP");
+     return 0;
+}

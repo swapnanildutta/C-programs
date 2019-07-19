@@ -4,7 +4,6 @@ int main()
     int g;
     printf("Enter the grade: ");
     scanf("%d",&g);
-    g/=10;
     switch(g){
     	case 10:
     	break;
@@ -21,5 +20,4 @@ int main()
     		}
     		
     }
-    return 0;
 }

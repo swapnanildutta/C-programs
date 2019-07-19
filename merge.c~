@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main(void)
+{
+     int i,j,k, a[]={5,7,9}, b[]={2,3,4,6}, c[7];
+     for(k=0;k<7;k++)
+     {
+         if(i<3 && j<4){
+         	if(a[i]<b[j])
+         		c[k]=a[i++];
+         	else
+         		c[k]=b[j++];
+         }
+         else if(i<3)
+         	c[k]=a[i++];
+         else if(j<4)
+         	c[k]=b[j++];
+         	
+     }
+     for(k=0;k<7;k++)
+          printf("%d\n",c[k]);
+     return 1;
+}
