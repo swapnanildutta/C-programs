@@ -1,26 +1,47 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+int n;
+void display(int *arr)
+{
+     int i;
+     for(i=0;i<n;i++)
+         printf("%d  ",arr[i]);
+     printf("\n");
+}
+void selectionsort(int *arr)
+{
+     int i,min,j,temp;
+     for(i=0;i<n-1;i++)
+     {
+         min=i;
+         for(j=i+1;j<n;j++)
+         {
+             if(arr[min]>arr[j])
+                 min=j;
+         }
+         if(min!=i)
+         {
+             temp=arr[min];
+             arr[min]=arr[i];
+             arr[i]=temp;
+         }
+         printf("Pass %d ---> ",i+1);
+         display(arr);
+     }
+}
 int main()
 {
-    int n,i,j,k=0,min;
+    int i,j,*arr;
     printf("Enter the size of array: ");
     scanf("%d",&n);
-    int a[n];
-    printf("Enter the elements: ");
+    arr=(int *)calloc(n,sizeof(int));
+    printf("Enter the elements of array: ");
     for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
-    for(i=0;i<n;i++)
-    {
-        min=i;
-        for(j=i+1;j<n;j++)
-        {
-             if(a[min]>a[j])
-                min=j;
-        }
-        k=a[min];
-        a[min]=a[i];
-        a[i]=k;
-    }
-    for(i=0;i<n;i++)
-        printf("  %d   ",a[i]);
+         scanf("%d",&arr[i]);
+    printf("\nThe array is: ");
+    display(arr);
+    selectionsort(arr);
+    printf("\nAfter sorting ");
+    display(arr);
     return 0;
 }

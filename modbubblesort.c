@@ -10,9 +10,10 @@ void display(int *arr)
 }
 void bubblesort(int *arr)
 {
-     int i,j,temp;
+     int i,j,temp,k,f=0;
      for(i=0;i<n-1;i++)
      {
+         f=0;
          for(j=0;j<n-i-1;j++)
          {
              if(arr[j]>arr[j+1])
@@ -24,6 +25,13 @@ void bubblesort(int *arr)
          }
          printf("Pass %d ---> ",i+1);
          display(arr);
+         for(k=0;k<n-1;k++)
+         {
+              if(arr[k]<arr[k+1])
+                    f++;
+         }
+         if(f==n-1)
+              break;
      }
 }
 int main()
