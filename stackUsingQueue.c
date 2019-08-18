@@ -7,6 +7,16 @@ int rear1=-1;
 int front2=-1;
 int rear2=-1;
 int n;
+void toStack()
+{
+    if(front1==-1&&rear1==-1)
+        printf("Underflow\n");
+    else{
+        for(front2=0;front1<=rear1;front1++)
+            queue2[++rear2]=queue1[front1];
+        front1=-1,rear1=-1;
+    }
+}
 void enqueue(int num)
 {
     if(rear1==n-1)
@@ -20,16 +30,6 @@ void enqueue(int num)
         front2=-1,rear2=-1;
     }
 }
-void toStack()
-{
-    if(front1==-1&&rear1==-1)
-        printf("Underflow\n");
-    else{
-        for(front2=0;front1<=rear1;front1++)
-            queue2[++rear2]=queue1[front1];
-        front1=-1,rear1=-1;
-    }
-}
 void dequeue()
 {
     if(front1==-1&&rear1==-1)
@@ -40,14 +40,20 @@ void dequeue()
         for(i=0;i<rear1;i++)
             queue1[i]=queue1[i+1];
         rear1--;
+        if(rear1==-1)
+            front1=-1;
     }
 }
 void display()
 {
     int i;
-    printf("The Stack is :");
-    for(i=front1;i<=rear1;i++)
-         printf("%d  ",queue1[i]);
+    if(front1==-1&&rear1==-1)
+        printf("No element to display!!\n");
+    else{
+        printf("The Stack is :");
+        for(i=front1;i<=rear1;i++)
+            printf("%d  ",queue1[i]);
+    }
 }
 int main()
 {
